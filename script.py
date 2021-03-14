@@ -19,5 +19,11 @@ with open('people.csv') as csvfile:
 
         if (len(list) == 5):
             for i in range(0, 5):
-                if (list[i] in data.keys()): # Assuming that list[i] is in position 3 when row length = 5
+                # Assuming that list[i] is in position 3 when row length = 5
+                if (list[i] in data.keys()):
                     list[i + 1] = data[list[i]]
+        else:
+            while (len(list) != 5):
+                list.append('')
+
+        print(list)
