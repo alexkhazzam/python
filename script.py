@@ -25,5 +25,9 @@ with open('people.csv') as csvfile:
         else:
             while (len(list) != 5):
                 list.append('')
-
-        print(list)
+            for i in range(0, 5):
+                if (list[i] in data.keys()):
+                    list[4] = data[list[i]]
+                    list[3] = list[i]
+                    list[i] = None
+                    break
