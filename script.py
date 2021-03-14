@@ -2,6 +2,8 @@ import csv
 import copy
 import json
 
+editedLists = []
+
 with open('people.csv') as csvfile:
     readCSV = csv.reader(csvfile, delimiter=',')
     with open('state_to_region.json') as f:
@@ -35,3 +37,10 @@ with open('people.csv') as csvfile:
                     list[i] = None
                     break  # No need to keep looping once state found
                 # If state not found => continue and do not touch row
+
+        editedLists.append(list)
+
+with open('people.csv', 'w') as csvfile:
+    csvWriter = csv.writer(csvfile)
+    for list in editedLists:
+        csvWriter.writerow(list)
