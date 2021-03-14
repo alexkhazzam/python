@@ -14,20 +14,24 @@ with open('people.csv') as csvfile:
             currentElement += 1
         return list
 
+    def elementExists(el):
+        return el in data.keys()
+
     for list in readCSV:
         list = copy.deepcopy(trimList(list))
 
         if (len(list) == 5):
             for i in range(0, 5):
                 # Assuming that list[i] is in position 3 when row length = 5
-                if (list[i] in data.keys()):
+                if (elementExists(list[i])):
                     list[i + 1] = data[list[i]]
         else:
             while (len(list) != 5):
                 list.append('')
             for i in range(0, 5):
-                if (list[i] in data.keys()):
+                if (elementExists(list[i])):
                     list[4] = data[list[i]]
                     list[3] = list[i]
                     list[i] = None
-                    break
+                    break  # No need to keep looping once state found
+                # If state not found => continue and do not touch row
