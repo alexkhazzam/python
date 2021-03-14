@@ -29,7 +29,7 @@ with open('people.csv') as csvfile:
             while (len(list) != 5):
                 list.append('')
             for i in range(0, 5):
-                if (elementExists(list[i])):
+                if (elementExists(list[i])):  # Not so efficient...but it will work
                     list[4] = data[list[i]]
                     list[3] = list[i]
                     list[i] = None
