@@ -26,7 +26,7 @@ with open('people.csv') as csvfile:
                 if (row[el] in data.keys()):
                     row[3] = row[el]
                     row[3 + 1] = data[row[el]]
-                elif (row[el] == ''):
+                elif (row[el] == '' or row[el] == 'None'):
                     # Note that NONE is the same as leaving the cell blank; this is simply for readability purposes
                     row[el] = 'NONE'
             else:
